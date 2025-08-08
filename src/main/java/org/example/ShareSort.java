@@ -61,7 +61,7 @@ public class ShareSort {
             //Возрат в начало правой части
             to = endArr;
 
-            //Копирование части в отдельный массив
+            //Копирование отсортированой части в отдельный массив
             bufArr = Arrays.copyOfRange(arr,from2,from);
 
             int i = 0;
