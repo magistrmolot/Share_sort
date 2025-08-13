@@ -8,18 +8,18 @@ public class ShareSort {
     public static void main( String[] args )
     {
         Random r = new Random();
-        int t = 2000000;
+        int t = 20;
         int[] testArr = new int[t];
 
 
         for (int i = 0; i < t; i++) {
             testArr[i] = r.nextInt(t);
         }
-//       System.out.println(Arrays.toString(testArr));
+       System.out.println(Arrays.toString(testArr));
 
         testArr = ShareSort.shareSort(testArr);
 
-//       System.out.println(Arrays.toString(testArr));
+       System.out.println(Arrays.toString(testArr));
     }
 
     public static int [] shareSort(int[] arr){
