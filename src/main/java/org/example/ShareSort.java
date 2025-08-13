@@ -8,21 +8,40 @@ public class ShareSort {
     public static void main( String[] args )
     {
         Random r = new Random();
-        int t = 20000;
+        int t = 2000000;
         int[] testArr = new int[t];
 
 
         for (int i = 0; i < t; i++) {
             testArr[i] = r.nextInt(t);
         }
-//        System.out.println(Arrays.toString(testArr));
+//       System.out.println(Arrays.toString(testArr));
 
         testArr = ShareSort.shareSort(testArr);
 
-//        System.out.println(Arrays.toString(testArr));
+//       System.out.println(Arrays.toString(testArr));
     }
 
     public static int [] shareSort(int[] arr){
+        if(arr.length == 0){
+            System.out.println("Элементы в массиве отстутствуют");
+            return arr;
+        }else if(arr.length == 1){
+            System.out.println("Нечего соритировать в массиве 1 элемент");
+            return arr;
+        }else if(arr.length == 2){
+            if(arr[0] > arr[1]){
+                int temp = arr[0];
+                arr[0] = arr[1];
+                arr[1] = temp;
+            }
+            return arr;
+        }
+        arr = shareDoSort(arr);
+        return arr;
+    }
+
+    public static int [] shareDoSort(int[] arr){
         int startArr = 0;
         int endArr = arr.length-1;
         int from = startArr;
@@ -86,7 +105,7 @@ public class ShareSort {
         int j = 0;
         int c = 0;
         //Копирование остатка в отдельный массив
-        bufArr = Arrays.copyOfRange(arr,from-1,endArr);
+        bufArr = Arrays.copyOfRange(arr,from,endArr+1);
 
         //Если в остатке больше 1 элемента сорутируем
         //Больше 2 элементов не пока не было
